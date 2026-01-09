@@ -111,18 +111,11 @@ Raw versio is:https://raw.githubusercontent.com/Ngg121/aimlmid2026_n_gvazava25/m
 The dataset contains 2,500 email records, each represented as a single comma-delimited row with the following numeric features:
 
 words, links, capital_words, spam_word_count, is_spam
-
-
 Where:
-
 words – total number of words in the email
-
 links – number of URLs in the email
-
 capital_words – number of fully capitalized words
-
 spam_word_count – number of words matching a predefined spam dictionary
-
 is_spam – class label (1 = spam, 0 = legitimate)
 
 
@@ -130,29 +123,15 @@ is_spam – class label (1 = spam, 0 = legitimate)
 
 2. Model Training and Validation Description
 Data Loading
-
 The training script loads the dataset directly from the local machine:
-
 /Users/ninogvazava/Desktop/2. Dataset.csv
-
-
 The first four columns are used as input features, and the last column (is_spam) is used as the target label.
-
 Train/Test Split
-
 The dataset is split as follows:
-
 70% (1,750 samples) for training
-
 30% (750 samples) for validation
-
 A stratified split is used when possible to preserve the original class distribution.
-
-Model Used
-
-The classifier is a Binary Logistic Regression model implemented using scikit-learn.
-
-
+Model Used:The classifier is a Binary Logistic Regression model implemented using scikit-learn.
 
 
 
@@ -166,21 +145,15 @@ Train/Test split: 1750/750 (70/30)
 
 Intercept
 b0 = 1.970884
-
 Feature Coefficients
 Feature	Coefficient
 capital_words	3.414614
 links	2.145914
 spam_word_count	1.970693
 words	1.457101
-
 Interpretation:
-
 Emails with more capitalized words and links strongly increase the probability of being spam.
-
 Presence of known spam keywords also significantly contributes to spam classification.
-
-
 
 
 
@@ -191,42 +164,25 @@ Confusion Matrix (Test Set – 30%)
 [[357  10]
  [ 19 364]]
 
-
 Where:
-
 True Negatives (TN): 357 legitimate emails correctly classified
-
 False Positives (FP): 10 legitimate emails misclassified as spam
-
 False Negatives (FN): 19 spam emails misclassified as legitimate
-
 True Positives (TP): 364 spam emails correctly classified
-
 Accuracy
 Accuracy = 0.96
-
-
 The model correctly classifies 96% of unseen emails, demonstrating strong generalization performance.
 
 
 
 
-
-
 5. Email Parser Description
-
 The email parser converts raw email text into the same numeric feature format used in the dataset.
-
 Extracted Features
-
 words: total number of word tokens
-
 links: count of URLs (http://, https://, www)
-
 capital_words: number of fully uppercase words (length ≥ 2)
-
 spam_word_count: number of words found in a predefined spam dictionary
-
 Parser Code
 def parse_email(text: str):
     tokens = WORD_RE.findall(text)
@@ -236,43 +192,27 @@ def parse_email(text: str):
     spam_word_count = sum(1 for t in tokens if t.lower() in SPAM_WORDS)
     return words, links, capital_words, spam_word_count
 
-
 The output format exactly matches the dataset feature order.
 
 
 
 
 6. Testing with Real Emails (Spam and Non-Spam)
-
 Two separate text files were attached:
-
 Spam email sample
-
 Non-spam (legitimate) email sample
-
 The code parses each email, extracts features, and passes them to the trained model.
-
 When tested with a legitimate project-related email, the model correctly classified it as non-spam, returning a low spam probability, confirming correct behavior on real-world input.
 
 
 
 
-
-
-
-
 7. Confusion Matrix Heatmap
-
 A confusion matrix heatmap was generated and saved as an image:
-
 confusion_matrix.png
-
-
+<img width="946" height="748" alt="image" src="https://github.com/user-attachments/assets/e6eab40e-8bfb-4702-b7f7-97f6d17591af" />
 The heatmap visually represents classification performance:
-
 Darker diagonal cells indicate correct predictions
-
 Lighter off-diagonal cells indicate misclassifications
-
 This visualization makes it easier to understand model errors and overall balance between spam and legitimate detection.
 
