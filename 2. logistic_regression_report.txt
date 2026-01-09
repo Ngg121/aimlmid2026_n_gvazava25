@@ -1,0 +1,40 @@
+LOGISTIC REGRESSION SPAM CLASSIFIER REPORT
+==================================================
+Dataset: /Users/ninogvazava/Desktop/2. Dataset.csv
+Rows: 2500 | Features columns: 4 | Label column: is_spam
+Train/Test split: 1750/750 (70/30)
+
+MODEL USED (Binary Logistic Regression)
+--------------------------------------------------
+We model the probability of Spam (class=1) as:
+
+  p(spam|x) = 1 / (1 + exp(-(b0 + b1*x1 + ... + bn*xn)))
+
+Decision rule (default threshold 0.5): predict spam if p(spam|x) >= 0.5
+
+INTERCEPT (b0)
+--------------------------------------------------
+1.970884
+
+COEFFICIENTS (bi) by feature
+--------------------------------------------------
+capital_words: 3.414614
+links: 2.145914
+spam_word_count: 1.970693
+words: 1.457101
+
+EVALUATION ON TEST SET
+--------------------------------------------------
+Confusion matrix (rows=true, cols=pred) for [legitimate(0), spam(1)]:
+[[357  10]
+ [ 19 364]]
+
+Classification report:
+              precision    recall  f1-score   support
+
+  legitimate       0.95      0.97      0.96       367
+        spam       0.97      0.95      0.96       383
+
+    accuracy                           0.96       750
+   macro avg       0.96      0.96      0.96       750
+weighted avg       0.96      0.96      0.96       750
