@@ -6,14 +6,10 @@ from sklearn.model_selection import train_test_split
 from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import confusion_matrix, accuracy_score
 
-# =========================
-# 1) PATH TO YOUR DATASET
-# =========================
+
 DATASET_PATH = "/Users/ninogvazava/Desktop/2. Dataset.csv"
 
-# =========================
-# 2) PASTE EMAIL TO TEST
-# =========================
+
 EMAIL_TEXT = """
 Hi Alex,
 
@@ -38,7 +34,7 @@ Project Manager
 """
 
 # =========================
-# 3) SPAM WORD LIST (FOR YOUR PARSER)
+# 3) SPAM WORD LIST (FOR  PARSER)
 # =========================
 SPAM_WORDS = {
     "free", "winner", "win", "prize", "cash", "credit", "loan", "offer",
@@ -72,7 +68,7 @@ def load_dataset(path: str):
 
     df = pd.read_csv(path)
 
-    # If your CSV has more columns than needed, we keep first 4 as X
+    # If  CSV has more columns than needed, we keep first 4 as X
     # and assume last column is the label y.
     X = df.iloc[:, :4]
     y = df.iloc[:, -1]
