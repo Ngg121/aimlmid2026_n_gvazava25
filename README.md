@@ -1,4 +1,4 @@
-<img width="550" height="437" alt="image" src="https://github.com/user-attachments/assets/12d48458-4be5-4c25-9614-d6129e8fb0ad" />Pearson Correlation Coefficient
+Pearson Correlation Coefficient
 
 Repository name: **aimlmid2026_n_gvazava25**  
 Author: Nino Gvazava
@@ -73,5 +73,5 @@ As X increases, Y decreases almost linearly.
 In the attachments you may find visual graph - scatter plot visualizes the dataset along with a best-fit line,
 illustrating the correlation:
 
-
+<img width="550" height="437" alt="image" src="https://github.com/user-attachments/assets/12d48458-4be5-4c25-9614-d6129e8fb0ad" /> 
 
